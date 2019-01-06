@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Bokeka-Android-App</string>
+    <string name="app_name">博客咖</string>
+    <string name="title_home">首页</string>
+    <string name="title_acticle">文章</string>
+    <string name="title_find">发现</string>
+    <string name="title_mine">我的</string>
+    <string name="nav_switch_night_mode">测试1</string>
+    <string name="nav_setting">设置</string>
+    <string name="nav_share">分享</string>
+    <string name="action_search">搜索</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="double_click_exit">双击退出</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
