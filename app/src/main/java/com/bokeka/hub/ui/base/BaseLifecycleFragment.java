@@ -7,8 +7,8 @@ import com.bokeka.hub.LiveBus;
 import com.bokeka.hub.loadstate.BaseStateControl;
 import com.bokeka.hub.loadstate.LoadingState;
 import com.bokeka.hub.ui.fragment.BaseFragment;
-import com.bokeka.hub.utils.ErrorState;
-import com.bokeka.hub.utils.StateConstants;
+import com.bokeka.hub.utils.constans.ErrorState;
+import com.bokeka.hub.utils.constans.StateConstants;
 import com.bokeka.hub.utils.TUtil;
 import com.bokeka.hub.viewmodel.base.BaseViewModel;
 

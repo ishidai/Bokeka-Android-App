@@ -1,4 +1,4 @@
-package com.bokeka.hub.utils;
+package com.bokeka.hub.utils.constans;
 
 import android.content.Context;
 import android.view.View;

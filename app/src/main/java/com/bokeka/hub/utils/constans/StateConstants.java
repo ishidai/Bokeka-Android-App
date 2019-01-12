@@ -1,4 +1,4 @@
-package com.bokeka.hub.utils;
+package com.bokeka.hub.utils.constans;
 
 /**
  * @author daixin 2019/1/7
