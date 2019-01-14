@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 /**
@@ -79,9 +80,9 @@ public abstract class BaseViewPagerFragment<T extends BaseViewModel> extends Bas
     /**
      * create Fragment
      *
-     * @return List<BaseFragment>
+     * @return List<Fragment>
      */
-    protected abstract List<BaseFragment> createFragments();
+    protected abstract List<Fragment> createFragments();
 
 
     /**

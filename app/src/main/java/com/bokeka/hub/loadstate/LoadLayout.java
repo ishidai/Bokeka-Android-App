@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
  * @website bokeka.com
  */
 public class LoadLayout extends FrameLayout {
+
     private Map<Class<? extends BaseStateControl>, BaseStateControl> stateViews = new HashMap<>();
     private Context context;
     private BaseStateControl.OnRefreshListener onRefreshListener;

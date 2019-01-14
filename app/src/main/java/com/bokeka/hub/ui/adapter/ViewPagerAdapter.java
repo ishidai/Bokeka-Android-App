@@ -5,6 +5,7 @@ import com.bokeka.hub.ui.fragment.BaseFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
@@ -14,12 +15,12 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
  */
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private List<BaseFragment> fragments;
+    private List<Fragment> fragments;
 
     private List<String> mTitles;
 
 
-    public ViewPagerAdapter(FragmentManager fm, List<BaseFragment> lists, List<String> titles) {
+    public ViewPagerAdapter(FragmentManager fm, List<Fragment> lists, List<String> titles) {
         super(fm);
         fragments = new ArrayList<>();
         mTitles = new ArrayList<>();
@@ -28,7 +29,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public BaseFragment getItem(int position) {
+    public Fragment getItem(int position) {
         return fragments.get(position);
 
     }
