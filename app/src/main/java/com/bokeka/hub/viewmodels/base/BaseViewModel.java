@@ -1,4 +1,4 @@
-package com.bokeka.hub.viewmodel.base;
+package com.bokeka.hub.viewmodels.base;
 
 import android.app.Application;
 

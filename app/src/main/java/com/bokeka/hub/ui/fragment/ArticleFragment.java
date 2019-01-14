@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
  */
 public class ArticleFragment extends Fragment {
 
-    public static ArticleFragment INSTANCE;
+    public static ArticleFragment INSTANCE = null;
 
     public static ArticleFragment getInstance() {
         if (INSTANCE == null) {

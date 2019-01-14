@@ -12,7 +12,7 @@ import com.bokeka.hub.R;
 import com.bokeka.hub.ui.fragment.ArticleFragment;
 import com.bokeka.hub.ui.fragment.DiscoveryFragment;
 import com.bokeka.hub.ui.fragment.MineFragment;
-import com.bokeka.hub.ui.fragment.RecommendFragment;
+import com.bokeka.hub.ui.fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -28,18 +28,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final int FRAGMENT_MINE = 3;
 
     private Toolbar toolbar;
-    private RecommendFragment recommendTabFragment;
+    private HomeFragment recommendTabFragment;
     private ArticleFragment articleTabFragment;
     private DiscoveryFragment discoveryTabFragment;
     private MineFragment mineTabFragment;
     private long firstClickTime = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        showFragment(FRAGMENT_RECOMMEND);
     }
 
     private void initView() {
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case FRAGMENT_RECOMMEND:
                 toolbar.setTitle(R.string.app_name);
                 if (recommendTabFragment == null) {
-                    recommendTabFragment = RecommendFragment.getInstance();
-                    ft.add(R.id.container, recommendTabFragment, RecommendFragment.class.getName());
+                    recommendTabFragment = HomeFragment.getInstance();
+                    ft.add(R.id.container, recommendTabFragment, HomeFragment.class.getName());
                 } else {
                     ft.show(recommendTabFragment);
                 }
@@ -140,13 +140,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if ((secondClickTime - firstClickTime < 500)) {
             switch (index) {
                 case FRAGMENT_RECOMMEND:
-                    recommendTabFragment.onDoubleClick();
+//                    recommendTabFragment.onDoubleClick();
                     break;
                 case FRAGMENT_ARTICLE:
-                    articleTabFragment.onDoubleClick();
+//                    articleTabFragment.onDoubleClick();
                     break;
                 case FRAGMENT_FOUND:
-                    discoveryTabFragment.onDoubleClick();
+//                    discoveryTabFragment.onDoubleClick();
                     break;
                 default:
                     break;

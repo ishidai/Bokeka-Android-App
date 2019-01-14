@@ -1,6 +1,7 @@
 package com.bokeka.hub.net;
 
 import com.bokeka.hub.data.Blog;
+import com.bokeka.hub.data.BlogCategory;
 import com.bokeka.hub.data.LoginTokenResp;
 import com.bokeka.hub.data.Posts;
 import com.bokeka.hub.data.UserResp;
@@ -16,11 +17,13 @@ import retrofit2.http.Path;
  * @website bokeka.com
  */
 public interface ApiService {
+
+
     /**
-     * 拉取blogs列表
-     * @param userId 用户Id, 未登陆填0
-     * @param categoryId 栏目分类Id
-     * @return Blog集合
+     * get blogs list
+     * @param userId userId (default value = 0)
+     * @param categoryId channel id
+     * @return blog list
      */
     @GET("api/common/v1.0/showblogs/{user_id}/{category_id}")
     Single<Blog> fetchBlogsUnderCategory(@Path("user_id") int userId, @Path("category_id") int categoryId);
@@ -29,18 +32,23 @@ public interface ApiService {
     Observable<Posts> fetchActicles();
 
     /**
-     *  登录
-     * @return
+     * login
+     * @return user token
      */
     @GET("api/v1.0/token")
     Observable<LoginTokenResp> basicLogin(@Header("Authorization") String authorization);
 
     /**
-     * 获取用户信息
-     * @param token
-     * @return
+     * user info
+     * @param token user authorization
+     * @return user information
      */
     @GET("api/v1.0/user/info")
     Observable<UserResp> getUser(@Header("Authorization") String token);
+
+
+    @GET("api/common/v1.0/categories/blog/")
+    Observable<BlogCategory> getBlogCategories();
+
 }
 

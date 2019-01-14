@@ -10,13 +10,12 @@ import com.bokeka.hub.ui.fragment.BaseFragment;
 import com.bokeka.hub.utils.constans.ErrorState;
 import com.bokeka.hub.utils.constans.StateConstants;
 import com.bokeka.hub.utils.TUtil;
-import com.bokeka.hub.viewmodel.base.BaseViewModel;
+import com.bokeka.hub.viewmodels.base.BaseViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
@@ -43,8 +42,8 @@ public abstract class BaseLifecycleFragment<T extends BaseViewModel> extends Bas
             dataObserver();
             mStateEventKey = getStateEventKey();
             mStateEventTag = getStateEventTag();
-            eventKeys.add(new StringBuilder((String) mStateEventKey).append(mStateEventTag).toString());
-            LiveBus.getDefault().subscribe(mStateEventKey, mStateEventTag).observe(this, observer);
+//            eventKeys.add(new StringBuilder((String) mStateEventKey).append(mStateEventTag).toString());
+//            LiveBus.getDefault().subscribe(mStateEventKey, mStateEventTag).observe(this, observer);
         }
     }
 
@@ -125,19 +124,16 @@ public abstract class BaseLifecycleFragment<T extends BaseViewModel> extends Bas
     }
 
 
-    protected Observer observer = new Observer<String>() {
-        @Override
-        public void onChanged(@Nullable String state) {
-            if (!TextUtils.isEmpty(state)) {
-                if (StateConstants.ERROR_STATE.equals(state)) {
-                    showError(ErrorState.class, "2");
-                } else if (StateConstants.NET_WORK_STATE.equals(state)) {
-                    showError(ErrorState.class, "1");
-                } else if (StateConstants.LOADING_STATE.equals(state)) {
-                    showLoading();
-                } else if (StateConstants.SUCCESS_STATE.equals(state)) {
-                    showSuccess();
-                }
+    protected Observer observer = (Observer<String>) state -> {
+        if (!TextUtils.isEmpty(state)) {
+            if (StateConstants.ERROR_STATE.equals(state)) {
+                showError(ErrorState.class, "2");
+            } else if (StateConstants.NET_WORK_STATE.equals(state)) {
+                showError(ErrorState.class, "1");
+            } else if (StateConstants.LOADING_STATE.equals(state)) {
+                showLoading();
+            } else if (StateConstants.SUCCESS_STATE.equals(state)) {
+                showSuccess();
             }
         }
     };

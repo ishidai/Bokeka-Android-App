@@ -32,12 +32,7 @@ public abstract class BaseFragment extends Fragment {
         View contentLayout = rootView.findViewById(getContentResId());
         loadManager = new LoadManager.Builder()
                 .setViewParams(contentLayout == null ? rootView : contentLayout)
-                .setListener(new BaseStateControl.OnRefreshListener() {
-                    @Override
-                    public void onRefresh(View v) {
-                        onStateRefresh();
-                    }
-                })
+                .setListener((BaseStateControl.OnRefreshListener) v -> onStateRefresh())
                 .build();
         initView(state);
         return rootView;
