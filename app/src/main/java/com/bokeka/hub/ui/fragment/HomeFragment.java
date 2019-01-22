@@ -1,12 +1,15 @@
 package com.bokeka.hub.ui.fragment;
 
 
+import android.os.Bundle;
+
 import com.bokeka.hub.ui.base.BaseViewPagerFragment;
 import com.bokeka.hub.viewmodels.HomeViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -40,7 +43,8 @@ public class HomeFragment extends BaseViewPagerFragment<HomeViewModel> {
     }
 
     @Override
-    protected Object getStateEventKey() {
-        return null;
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setAdapter();
     }
 }

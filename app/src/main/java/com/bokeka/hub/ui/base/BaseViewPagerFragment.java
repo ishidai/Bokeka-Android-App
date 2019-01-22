@@ -6,7 +6,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bokeka.hub.R;
-import com.bokeka.hub.loadstate.LoadingState;
 import com.bokeka.hub.ui.adapter.ViewPagerAdapter;
 import com.bokeka.hub.ui.fragment.BaseFragment;
 import com.bokeka.hub.viewmodels.base.BaseViewModel;
@@ -52,7 +51,6 @@ public abstract class BaseViewPagerFragment<T extends BaseViewModel> extends Bas
     @Override
     public void initView(Bundle state) {
         super.initView(state);
-        loadManager.showStateView(LoadingState.class);
         mTabLayout = getViewById(R.id.home_tab_layout);
         mViewPager = getViewById(R.id.home_view_pager);
         mTitles = new ArrayList<>();

@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bokeka.hub.loadstate.BaseStateControl;
-import com.bokeka.hub.loadstate.LoadManager;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -22,7 +19,6 @@ public abstract class BaseFragment extends Fragment {
 
     protected FragmentActivity activity;
 
-    protected LoadManager loadManager;
 
     protected boolean mIsFirstVisible = true;
 
@@ -30,10 +26,6 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
         rootView = inflater.inflate(getLayoutResId(), null, false);
         View contentLayout = rootView.findViewById(getContentResId());
-        loadManager = new LoadManager.Builder()
-                .setViewParams(contentLayout == null ? rootView : contentLayout)
-                .setListener((BaseStateControl.OnRefreshListener) v -> onStateRefresh())
-                .build();
         initView(state);
         return rootView;
     }
@@ -63,11 +55,6 @@ public abstract class BaseFragment extends Fragment {
      * @param state
      */
     public abstract void initView(Bundle state);
-
-    /**
-     *
-     */
-    protected abstract void onStateRefresh();
 
 
     @Override
